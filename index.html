@@ -4,110 +4,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barbería Estilo</title>
+  <title>Barbería Estilo | Elegancia Masculina</title>
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #111827;
-      color: white;
-      text-align: center;
+      background: #101010;
+      color: #f5f5f5;
+      line-height: 1.6;
     }
 
     header {
-      padding: 22px;
-      background: #080b12;
+      padding: 22px 15px;
+      text-align: center;
+      background: #080808;
+      border-bottom: 1px solid #c9a45c;
     }
 
     header h1 {
-      margin: 0;
-      color: #f5c76b;
+      color: #d6b36a;
+      font-size: 28px;
+      letter-spacing: 2px;
     }
 
-    main {
+    header p {
+      color: #bbb;
+      font-size: 13px;
+    }
+
+    .hero {
+      text-align: center;
       padding: 65px 20px;
+      background: linear-gradient(135deg, #191919, #302619);
     }
 
-    .etiqueta {
-      color: #f5c76b;
-      text-transform: uppercase;
-      letter-spacing: 3px;
+    .hero h2 {
+      font-size: 36px;
+      line-height: 1.2;
+      margin-bottom: 15px;
     }
 
-    h2 {
-      font-size: 38px;
-      margin: 18px 0;
+    .hero h2 span {
+      color: #d6b36a;
     }
 
-    .descripcion {
-      color: #d1d5db;
-      line-height: 1.7;
-      max-width: 480px;
-      margin: 0 auto 28px;
-    }
-
-    .servicios {
-      max-width: 420px;
-      margin: 35px auto;
-      padding: 22px;
-      background: #1f2937;
-      border-radius: 14px;
+    .hero p {
+      color: #ccc;
+      margin-bottom: 25px;
     }
 
     .boton {
       display: inline-block;
-      padding: 15px 24px;
-      background: #f5c76b;
-      color: #111827;
+      background: #d6b36a;
+      color: #111;
       text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 5px;
       font-weight: bold;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #d6b36a;
+      margin-bottom: 25px;
+    }
+
+    .servicio {
+      background: #1c1c1c;
+      padding: 18px;
+      margin-bottom: 12px;
       border-radius: 8px;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .servicio strong {
+      color: #d6b36a;
+      white-space: nowrap;
+    }
+
+    .sobre {
+      text-align: center;
+      color: #ccc;
+    }
+
+    .contacto {
+      text-align: center;
+      background: #191919;
+      border-radius: 10px;
+      padding: 30px 20px;
     }
 
     footer {
-      padding: 25px;
-      color: #9ca3af;
-      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    @media (max-width: 400px) {
+      .hero h2 {
+        font-size: 29px;
+      }
+
+      .servicio {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>BARBERÍA ESTILO</h1>
+    <p>Elegancia masculina · Estilo único</p>
   </header>
 
-  <main>
-    <p class="etiqueta">Tu estilo, tu identidad</p>
+  <div class="hero">
+    <h2>Tu estilo.<br><span>Tu identidad.</span></h2>
+    <p>Cortes modernos y atención personalizada.</p>
+    <a class="boton" href="#servicios">VER SERVICIOS</a>
+  </div>
 
-    <h2>Un corte que habla por vos.</h2>
+  <section id="servicios">
+    <h2>Nuestros servicios</h2>
 
-    <p class="descripcion">
-      Cortes modernos, atención personalizada
-      y el estilo que estás buscando.
-      ¡Te esperamos!
-    </p>
-
-    <div class="servicios">
-      <h3>Nuestros servicios</h3>
-      <p>Corte clásico</p>
-      <p>Degradado (fade)</p>
-      <p>Barba y perfilado</p>
+    <div class="servicio">
+      <span>Corte clásico</span>
+      <strong>$5.000</strong>
     </div>
 
-    <a class="boton"
-       href="https://wa.me/5491112345678">
-      Consultar por WhatsApp
-    </a>
-  </main>
+    <div class="servicio">
+      <span>Degradado (fade)</span>
+      <strong>$6.000</strong>
+    </div>
+
+    <div class="servicio">
+      <span>Corte + barba</span>
+      <strong>$8.000</strong>
+    </div>
+
+    <div class="servicio">
+      <span>Arreglo de barba</span>
+      <strong>$4.000</strong>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sobre nosotros</h2>
+    <p class="sobre">
+      Nos apasiona el estilo y cuidamos cada detalle
+      para que salgas con el corte que buscás.
+      Tu imagen, nuestra prioridad.
+    </p>
+  </section>
+
+  <section>
+    <div class="contacto">
+      <h2>¿Listo para tu próximo corte?</h2>
+      <p style="margin-bottom:20px;color:#ccc">
+        Contactanos y reservá tu turno.
+      </p>
+      <a class="boton" href="#servicios">
+        RESERVAR TURNO
+      </a>
+      <p style="margin-top:12px;color:#888;font-size:12px">
+        Botón de demostración
+      </p>
+    </div>
+  </section>
 
   <footer>
-    <p>Barbería Estilo · Atención personalizada</p>
-    <p>Ejemplo de página web para un negocio</p>
+    © 2026 Barbería Estilo · Todos los derechos reservados
   </footer>
+
 </body>
-  </html>
-                           
+</html>

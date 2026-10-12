@@ -4,199 +4,400 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barbería Estilo | Elegancia Masculina</title>
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="Barbería Estilo: cortes modernos, barba y atención personalizada.">
+  <title>Barbería Estilo | Cortes con estilo</title>
+
   <style>
+    :root {
+      --fondo: #101010;
+      --panel: #191919;
+      --dorado: #d4af37;
+      --blanco: #f5f5f5;
+      --gris: #b7b7b7;
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #101010;
-      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fondo);
+      color: var(--blanco);
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contenedor {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
     header {
-      padding: 22px 15px;
-      text-align: center;
       background: #080808;
-      border-bottom: 1px solid #c9a45c;
+      border-bottom: 1px solid #38301b;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    header h1 {
-      color: #d6b36a;
-      font-size: 28px;
-      letter-spacing: 2px;
+    .navegacion {
+      min-height: 75px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
-    header p {
-      color: #bbb;
+    .logo {
+      color: var(--dorado);
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--dorado);
+    }
+
+    .portada {
+      min-height: 530px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #101010 10%, rgba(16,16,16,.88) 55%, rgba(16,16,16,.35)),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=85") center/cover;
+    }
+
+    .portada-contenido {
+      padding: 85px 0;
+      max-width: 650px;
+    }
+
+    .etiqueta {
+      color: var(--dorado);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
       font-size: 13px;
     }
 
-    .hero {
-      text-align: center;
-      padding: 65px 20px;
-      background: linear-gradient(135deg, #191919, #302619);
+    h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.08;
+      margin: 18px 0;
     }
 
-    .hero h2 {
-      font-size: 36px;
-      line-height: 1.2;
-      margin-bottom: 15px;
+    h1 span,
+    h2 span {
+      color: var(--dorado);
     }
 
-    .hero h2 span {
-      color: #d6b36a;
-    }
-
-    .hero p {
-      color: #ccc;
-      margin-bottom: 25px;
+    .portada p {
+      color: #dddddd;
+      max-width: 500px;
+      margin-bottom: 28px;
     }
 
     .boton {
       display: inline-block;
-      background: #d6b36a;
+      background: var(--dorado);
       color: #111;
-      text-decoration: none;
-      padding: 13px 24px;
+      padding: 13px 22px;
       border-radius: 5px;
       font-weight: bold;
+      transition: .2s;
+    }
+
+    .boton:hover {
+      background: #f0cf61;
+      transform: translateY(-2px);
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 850px;
-      margin: auto;
+      padding: 75px 0;
+      scroll-margin-top: 85px;
     }
 
-    section h2 {
+    .titulo-seccion {
       text-align: center;
-      color: #d6b36a;
-      margin-bottom: 25px;
-    }
-
-    .servicio {
-      background: #1c1c1c;
-      padding: 18px;
+      font-size: clamp(28px, 5vw, 40px);
       margin-bottom: 12px;
-      border-radius: 8px;
-      border: 1px solid #333;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
     }
 
-    .servicio strong {
-      color: #d6b36a;
-      white-space: nowrap;
-    }
-
-    .sobre {
+    .subtitulo {
       text-align: center;
-      color: #ccc;
+      color: var(--gris);
+      max-width: 600px;
+      margin: 0 auto 38px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .foto {
+      background: var(--panel);
+      border: 1px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 260px;
+      display: block;
+      object-fit: cover;
+      transition: transform .3s;
+    }
+
+    .foto:hover img {
+      transform: scale(1.04);
+    }
+
+    .foto p {
+      padding: 15px;
+      color: var(--dorado);
+      font-weight: bold;
+    }
+
+    .servicios {
+      background: #151515;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tarjeta {
+      background: var(--panel);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 25px;
+    }
+
+    .icono {
+      font-size: 32px;
+    }
+
+    .tarjeta h3 {
+      color: var(--dorado);
+      margin: 10px 0;
+    }
+
+    .tarjeta p {
+      color: var(--gris);
+      font-size: 14px;
+    }
+
+    .precio {
+      display: block;
+      margin-top: 15px;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .sobre-nosotros {
+      text-align: center;
+    }
+
+    .sobre-nosotros p {
+      color: var(--gris);
+      max-width: 700px;
+      margin: 15px auto 25px;
     }
 
     .contacto {
       text-align: center;
-      background: #191919;
-      border-radius: 10px;
-      padding: 30px 20px;
+      background: linear-gradient(135deg, #201c10, #111);
+      border-top: 1px solid #3d331a;
+      border-bottom: 1px solid #3d331a;
+    }
+
+    .contacto p {
+      color: var(--gris);
+      margin: 12px auto 25px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      color: #888;
+      padding: 25px 15px;
+      color: var(--gris);
       font-size: 13px;
     }
 
-    @media (max-width: 400px) {
-      .hero h2 {
-        font-size: 29px;
+    @media (max-width: 700px) {
+      .navegacion {
+        padding: 15px 0;
+        flex-direction: column;
       }
 
-      .servicio {
-        font-size: 14px;
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .portada {
+        min-height: 470px;
+        background-position: 60% center;
+      }
+
+      .galeria,
+      .tarjetas {
+        grid-template-columns: 1fr;
+      }
+
+      .foto img {
+        height: 250px;
+      }
+
+      section {
+        padding: 55px 0;
       }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
-    <h1>BARBERÍA ESTILO</h1>
-    <p>Elegancia masculina · Estilo único</p>
+    <div class="contenedor navegacion">
+      <a class="logo" href="#inicio">✂ BARBERÍA ESTILO</a>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#galeria">Cortes</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="hero">
-    <h2>Tu estilo.<br><span>Tu identidad.</span></h2>
-    <p>Cortes modernos y atención personalizada.</p>
-    <a class="boton" href="#servicios">VER SERVICIOS</a>
-  </div>
+  <main>
+    <section class="portada" id="inicio">
+      <div class="contenedor portada-contenido">
+        <span class="etiqueta">Tu estilo, tu identidad</span>
+        <h1>Un buen corte<br>cambia <span>todo.</span></h1>
+        <p>
+          Cortes modernos, detalles impecables y atención personalizada.
+          Encontrá el estilo que mejor va con vos.
+        </p>
+        <a class="boton" href="#servicios">VER SERVICIOS</a>
+      </div>
+    </section>
 
-<section id="galeria" style="padding: 40px 20px; text-align: center; background: #111; color: #d4af37;">
-  <h2>Galería de cortes</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=500&q=80" alt="Barbería" style="width: 280px; max-width: 100%; height: 220px; object-fit: cover; border-radius: 10px;">
-    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=500&q=80" alt="Corte de pelo" style="width: 280px; max-width: 100%; height: 220px; object-fit: cover; border-radius: 10px;">
-    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=500&q=80" alt="Corte moderno" style="width: 280px; max-width: 100%; height: 220px; object-fit: cover; border-radius: 10px;">
-  </div>
-  </section>
-    
-    <h2>Nuestros servicios</h2>
+    <section id="galeria">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Nuestra <span>galería</span></h2>
+        <p class="subtitulo">
+          Inspirate con diferentes estilos y encontrá tu próximo corte.
+        </p>
 
-    <div class="servicio">
-      <span>Corte clásico</span>
-      <strong>$5.000</strong>
-    </div>
+        <div class="galeria">
+          <article class="foto">
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80" alt="Trabajo de barbería y corte moderno" loading="lazy">
+            <p>Estilo moderno</p>
+          </article>
 
-    <div class="servicio">
-      <span>Degradado (fade)</span>
-      <strong>$6.000</strong>
-    </div>
+          <article class="foto">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80" alt="Corte de cabello masculino" loading="lazy">
+            <p>Estilo clásico</p>
+          </article>
 
-    <div class="servicio">
-      <span>Corte + barba</span>
-      <strong>$8.000</strong>
-    </div>
+          <article class="foto">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" alt="Interior de barbería profesional" loading="lazy">
+            <p>Experiencia premium</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <div class="servicio">
-      <span>Arreglo de barba</span>
-      <strong>$4.000</strong>
-    </div>
-  </section>
+    <section class="servicios" id="servicios">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Nuestros <span>servicios</span></h2>
+        <p class="subtitulo">
+          Calidad, precisión y estilo en cada visita.
+        </p>
 
-  <section>
-    <h2>Sobre nosotros</h2>
-    <p class="sobre">
-      Nos apasiona el estilo y cuidamos cada detalle
-      para que salgas con el corte que buscás.
-      Tu imagen, nuestra prioridad.
-    </p>
-  </section>
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <div class="icono">✂️</div>
+            <h3>Corte de cabello</h3>
+            <p>Cortes clásicos y modernos adaptados a tu estilo.</p>
+            <span class="precio">Consultar precio</span>
+          </article>
 
-  <section>
-    <div class="contacto">
-      <h2>¿Listo para tu próximo corte?</h2>
-      <p style="margin-bottom:20px;color:#ccc">
-        Contactanos y reservá tu turno
-        <a class="boton" href="#servicios">
-        RESERVAR TURNO
-      <a class="boton" href="https://www.google.com">
-      <p style="margin-top:12px;color:#888;font-size:12px">
-        Botón de demostración
-      </p>
-    </div>
-  </section>
+          <article class="tarjeta">
+            <div class="icono">🧔</div>
+            <h3>Arreglo de barba</h3>
+            <p>Perfilado y cuidado para un acabado prolijo.</p>
+            <span class="precio">Consultar precio</span>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">💈</div>
+            <h3>Corte + barba</h3>
+            <p>Una experiencia completa para renovar tu look.</p>
+            <span class="precio">Consultar precio</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre-nosotros" id="nosotros">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Más que un <span>corte</span></h2>
+        <p>
+          En Barbería Estilo nos importa que te sientas cómodo y te vayas
+          con un look que te represente. Trabajamos con dedicación,
+          atención personalizada y pasión por los detalles.
+        </p>
+        <a class="boton" href="#contacto">HABLÁ CON NOSOTROS</a>
+      </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+      <div class="contenedor">
+        <h2 class="titulo-seccion">Reservá tu <span>turno</span></h2>
+        <p>Consultanos por horarios, servicios y precios.</p>
+
+        <!-- Reemplazá el número de ejemplo por el WhatsApp real -->
+        <a class="boton" href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer">
+          CONSULTAR POR WHATSAPP
+        </a>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    © 2026 Barbería Estilo · Todos los derechos reservados
+    <p>© 2026 Barbería Estilo. Todos los derechos reservados.</p>
+    <p>Estilo, confianza y precisión.</p>
   </footer>
-
 </body>
-</html>
+          </html>
+      
